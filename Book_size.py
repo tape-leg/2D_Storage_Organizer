@@ -110,9 +110,9 @@ def process_image_and_get_books_list(image_path):
 
     # Print the book information (width, height, list_num)
     for book in books_list:
-        print(f"Width: {book.width} cm")
-        print(f"Height: {book.height} cm")
-        print(f"list num: {book.name}")
+        print(f"Width: {book.width:.2f} cm")
+        print(f"Height: {book.height:.2f} cm")
+        print(f"list num: {book.name:.2f}")
         print()  # Print a new line
 
     # Return the list after processing
