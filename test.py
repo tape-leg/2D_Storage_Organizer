@@ -1,3 +1,14 @@
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        f = request.files['the_file']
+        f.save('/var/www/uploads/uploaded_file.txt')
+
+"""
 import cv2
 import numpy as np
 
@@ -109,3 +120,4 @@ for i in range(len(books_list)):  # Use len() to get the number of items in the 
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+"""
