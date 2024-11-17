@@ -5,35 +5,26 @@ import book
 ##organizes pile, puts as many books in as will fit
 def remove(pile, case):
     
-    ##test##
     
-    quickSort(pile, 0, len(pile)-1, "height")
+    quickSort(pile, 0, len(pile)-1, "height") # initial sort of books by height
     
     
-    print("***TESTING***")
-    for book in pile:
-        print(book.name)
-    print("***END TESTING***")
-    
-    #print(type(case))
-    
-    quickSort(case, 0, len(case)-1, "height")
+    quickSort(case, 0, len(case)-1, "height") # initial sort of shelves by height
 
-    #for shelf in case:
-    #    print(shelf.height)
 
     temp_pile = []
     
     for book in reversed(pile):
-        #print(f"{book} {type(book)}")
+        
         inShelf = False
+        
         for shelf in case:
-            #print(f"{shelf} {type(shelf)}")
+            
             if book.height > shelf.height:
-                #print(f"{book.name} is too big for {shelf.name}")
+                print(f"{book.name} is too big for {shelf.name}")
                 continue
             elif book.width > shelf.max_width - shelf.width:
-                #print(f"{shelf.name} is too full for {book.name}")
+                print(f"{shelf.name} is too full for {book.name}")
                 continue
             else:
                 shelf.content.append(book)
@@ -49,15 +40,6 @@ def remove(pile, case):
     for shelf in case:
         quickSort(shelf.content, 0, len(shelf.content)-1, "alpha")
     
-    """
-    
-    for book in pile:
-        if book.height < shelf.height and book.width < shelf.max_width-shelf.width:
-            temp_shelf.append(book)
-            shelf.width += book.width
-        else:
-            temp_pile.append(book)
-    """
     print("Could not fit the following books: ")
     
     
@@ -67,10 +49,8 @@ def remove(pile, case):
 
 
 
-def partition_name(list, low, high):
+def partition_name(list, low, high): # sorts alphabetically
     pivot = list[high].name
-    #print(type(pivot))
-    #print(type(list[1].name))
 
     i = low - 1
 
@@ -82,10 +62,8 @@ def partition_name(list, low, high):
     swap(list, i+1, high)
     return i+1
 
-def partition_height(list, low, high):
+def partition_height(list, low, high): # sorts by height
     pivot = list[high].height
-    #print(type(pivot))
-    #print(type(list[1].name))
 
     i = low - 1
 
