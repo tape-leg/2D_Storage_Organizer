@@ -1,5 +1,6 @@
 import random as rand
 import book
+import Book_size as bs
 
 
 ##organizes pile, puts as many books in as will fit
@@ -89,3 +90,16 @@ def quickSort(list, low, high, method):
 
         quickSort(list, low, pi - 1, method)
         quickSort(list, pi + 1, high, method)
+
+
+## TEST CASE ##
+"""
+shelf1 = book.Shelf("Shelf one", 2, 0, 3, [])
+
+case1 = [shelf1]
+
+remove(bs.process_image_and_get_books_list("books.jpg"), case1)
+for book in shelf1.content:
+    print(f"{book.width} x {book.height}")
+
+"""

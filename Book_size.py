@@ -1,14 +1,15 @@
 import cv2
 import numpy as np
+import book as bk
 
 # Load Mask RCNN model
 net = cv2.dnn.readNetFromTensorflow("dnn/frozen_inference_graph_coco.pb",
                                     "dnn/mask_rcnn_inception_v2_coco_2018_01_28.pbtxt")
 
 # Create list for transfer
-def add_book_size_info(books_list, width, height, list_num):
+def add_book_size_info(books_list, width, height, name):
     # Create a dictionary with the given information
-    obj_info = {'width': width, 'height': height, 'list_num': list_num}
+    obj_info = bk.Book(name, height, width)
     # Add the dictionary to the list
     books_list.append(obj_info)
 
@@ -109,9 +110,9 @@ def process_image_and_get_books_list(image_path):
 
     # Print the book information (width, height, list_num)
     for book in books_list:
-        print(f"Width: {book['width']} cm")
-        print(f"Height: {book['height']} cm")
-        print(f"list num: {book['list_num']}")
+        print(f"Width: {book.width} cm")
+        print(f"Height: {book.height} cm")
+        print(f"list num: {book.name}")
         print()  # Print a new line
 
     # Return the list after processing
