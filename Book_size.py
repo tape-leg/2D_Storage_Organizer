@@ -122,3 +122,5 @@ def process_image_and_get_books_list(image_path):
 #books_list = process_image_and_get_books_list("books.jpg")
 
 # Wait until a key is pressed, then close all windows
+cv2.waitKey(0)
+cv2.destroyAllWindows()
