@@ -30,6 +30,6 @@ bs.cv2.destroyAllWindows()
 
 for shelf in bookCase:
     with open(f"{shelf.name}.txt", 'w') as txt:
-        txt.write(f"Books listed in shelf \'{shelf.name}\' with width {shelf.width}cm: \n")
+        txt.write(f"Books listed in shelf \'{shelf.name}\' with width {shelf.width:.2f}cm: \n")
         for book in shelf.content:
             txt.write(book.name)
