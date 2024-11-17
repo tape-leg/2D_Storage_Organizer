@@ -82,10 +82,10 @@ def process_image_and_get_books_list(image_path):
         for cnt in contours:
             cv2.fillPoly(roi, [cnt], (int(color[0]), int(color[1]), int(color[2])))
 
-        # Optionally, calculate width and height in real-world units (in CM)
+        # calculate width and height in CM
         width_pixels = x2 - x
         height_pixels = y2 - y
-        ratio_px_mm = 153 / 14  # Example ratio, make sure this is correct for your case
+        ratio_px_mm = 153 / 14  # Example ratio, not accurate
         width_mm = width_pixels / ratio_px_mm
         width_cm = width_mm / 10
         height_mm = height_pixels / ratio_px_mm
@@ -112,12 +112,12 @@ def process_image_and_get_books_list(image_path):
         print(f"Width: {book['width']} cm")
         print(f"Height: {book['height']} cm")
         print(f"list num: {book['list_num']}")
-        print()  # Print a new line for readability
+        print()  # Print a new line
 
     # Return the list after processing
     return books_list
 
-# Now, you can call the function like this:
+#Call function
 books_list = process_image_and_get_books_list("books.jpg")
 
 # Wait until a key is pressed, then close all windows
