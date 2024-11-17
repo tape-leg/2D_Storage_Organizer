@@ -9,7 +9,7 @@ net = cv2.dnn.readNetFromTensorflow("dnn/frozen_inference_graph_coco.pb",
 # Create list for transfer
 def add_book_size_info(books_list, width, height, name):
     # Create a dictionary with the given information
-    obj_info = bk.Book(name, height, width)
+    obj_info = bk.Book(name, height*10, width*10)
     # Add the dictionary to the list
     books_list.append(obj_info)
 
@@ -119,8 +119,6 @@ def process_image_and_get_books_list(image_path):
     return books_list
 
 #Call function
-books_list = process_image_and_get_books_list("books.jpg")
+#books_list = process_image_and_get_books_list("books.jpg")
 
 # Wait until a key is pressed, then close all windows
-cv2.waitKey(0)
-cv2.destroyAllWindows()
